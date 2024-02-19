@@ -240,7 +240,7 @@ button {
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #000;
+  background-color: var(--white);
   margin: 5px 0;
 }
 
