@@ -1,0 +1,737 @@
+/* Resert CSS e fontes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*****************************************************/
+
+/* Cores */
+:root {
+  --white: #ffffff;
+  --black: #000000;
+
+  --orange: #fe6613;
+  --blue: #1b2653;
+  --red: #cc3333;
+  --gray: #787878;
+}
+
+/*****************************************************/
+
+/* Container da aplicação */
+.container {
+  max-width: 107rem;
+  width: 100%;
+  margin: 6.75rem auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 2rem 1rem;
+}
+
+/* Responsivo container */
+@media only screen and (max-width: 980px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 4.75rem auto;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin: 2.75rem auto;
+  }
+}
+
+/*****************************************************/
+
+/* Conteudos reutilizaveis */
+.title {
+  color: var(--blue);
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.vertically-align-items-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.border-content-box {
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  width: 29.125rem;
+  height: 27.1rem;
+  padding: 1rem;
+}
+
+.image-box-border {
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  max-width: 29.125rem;
+  width: 100%;
+  height: 27.1rem;
+}
+
+/*****************************************************/
+
+/* Responsivo content box e title */
+@media only screen and (max-width: 1470px) {
+  .border-content-box {
+    width: 18rem;
+    height: 20rem;
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .border-content-box {
+    width: 16rem;
+    padding: 0.5rem;
+  }
+}
+
+/*****************************************************/
+
+/* Responsivo image box border */
+@media only screen and (max-width: 1470px) {
+  .image-box-border {
+    width: 18rem;
+    height: 20rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .image-box-border {
+    width: 16rem;
+  }
+}
+
+/*****************************************************/
+
+/* Header */
+.header-container {
+  background-color: var(--blue);
+  height: 4.375rem;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 4.375rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.logo-container h1 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.logo-container a {
+  color: var(--white);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-list a {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.btn {
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: transparent;
+  border: 2px solid var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+/* Header responsivo */
+@media only screen and (max-width: 1470px) {
+  .btn {
+    font-size: 0.7rem;
+    padding: 0.3rem 1rem;
+  }
+
+  .nav-list {
+    gap: 0.5rem;
+  }
+
+  .nav-list a {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .logo-container {
+    gap: 0.2rem;
+  }
+
+  .nav-container {
+    display: none;
+  }
+
+  .logo-container h1 {
+    font-size: 1rem;
+  }
+}
+
+/*****************************************************/
+
+/* Menu Hamburguer */
+.nav-list-mobile-container {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+}
+
+.nav-list-mobile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-list-mobile a {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.nav-list-mobile.active {
+  transform: translateX(0);
+}
+
+@media only screen and (max-width: 980px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav-list-mobile-container {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .nav-list-mobile {
+    position: absolute;
+    top: 7.7vh;
+    right: 0;
+    width: 50vw;
+    height: 60vh;
+    background-color: var(--blue);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+}
+
+/*****************************************************/
+
+/* User list */
+.user-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  color: var(--blue);
+  gap: 1rem;
+}
+
+.user-details-mb {
+  margin-bottom: 1rem;
+}
+
+.user-details h2 {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.user-details p {
+  margin-bottom: 0.2rem;
+}
+
+.view-phone-btn {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--orange);
+}
+
+.user-details-phone {
+  margin-top: 0.5rem;
+  display: none;
+  font-weight: 500;
+}
+
+.user-details-phone-active {
+  display: block;
+}
+
+/* Responsivo User List */
+@media only screen and (max-width: 1470px) {
+  .user-photo {
+    max-width: 9rem;
+  }
+
+  .user-details h2 {
+    font-size: 1.2rem;
+  }
+
+  .user-details p {
+    font-size: 0.8rem;
+  }
+
+  .user-details-phone {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .view-phone-btn {
+    font-size: 0.8rem;
+  }
+}
+
+/*****************************************************/
+
+/* Send message */
+.input-container input {
+  display: block;
+  height: 2.75rem;
+  border: 1px solid var(--gray);
+  padding: 0 0.5rem;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.send-message-container textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 0.5rem;
+  height: 6rem;
+  font-size: 1.125rem;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.send-message-btn {
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 2.3rem;
+}
+
+/* Responsivo Send Message */
+@media only screen and (max-width: 1470px) {
+  .input-container input,
+  textarea::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .send-message-btn {
+    font-size: 1rem;
+    width: 10rem;
+    border-radius: 0.3rem;
+  }
+}
+
+/*****************************************************/
+
+/* Rule of 3 */
+.rule-of-three-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rule-of-three-content {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.orange-border {
+  border: 2px solid var(--orange) !important;
+}
+
+.border-detail::before {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 2px;
+  margin: 1.3rem 0;
+  background-color: var(--black);
+}
+
+.rule-of-three-btn {
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 8rem;
+  height: 2.3rem;
+}
+
+/* Rule of 3 responsivo */
+@media only screen and (max-width: 1470px) {
+  .rule-of-three-btn {
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    width: 6rem;
+    height: 1.8rem;
+  }
+}
+
+/*****************************************************/
+
+/* Modal image */
+.modal-image-container img {
+  border-radius: 0.5rem;
+  max-width: 29rem;
+  width: 100%;
+  height: 26.99rem;
+}
+
+.modal-image-btn {
+  text-transform: uppercase;
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 0.5rem;
+  max-width: 29rem;
+  width: 100%;
+  height: 2.625rem;
+  margin-top: 1rem;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: var(--white);
+  max-width: 81.25rem;
+  width: 100%;
+  max-height: 52.5rem;
+  height: 100%;
+  overflow: auto;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.modal-border-bottom {
+  border-bottom: 2px solid var(--gray);
+  height: 3rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content img {
+  margin-left: 1.3rem;
+  max-width: 100%;
+}
+
+.close-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 1.4rem;
+  color: var(--red);
+  font-weight: 600;
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  cursor: pointer;
+}
+
+.image-box-borders {
+  margin-bottom: 20px;
+}
+
+/* Modal image responsivo */
+@media only screen and (max-width: 1470px) {
+  .modal-image-container img {
+    height: 20rem;
+  }
+
+  .modal-image-btn {
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    height: 1.8rem;
+  }
+
+  .modal-content {
+    width: 80%;
+    height: 80%;
+  }
+
+  .modal-content img {
+    margin-left: 3.2rem;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .modal-content {
+    height: 66%;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .modal-content {
+    width: 80%;
+    height: 53%;
+  }
+
+  .modal-content img {
+    margin-left: 2.3rem;
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-content {
+    height: 45%;
+  }
+
+  .modal-content img {
+    margin-left: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 565px) {
+  .modal-content {
+    height: 33%;
+  }
+
+  .modal-content img {
+    margin-left: 1rem;
+  }
+}
+
+/*****************************************************/
+
+/* Dowload property guide */
+.property-guide-container {
+  position: relative;
+}
+
+.property-guide-container img {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: 26.99rem;
+}
+
+.property-guide-align-items {
+  max-width: 29rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.property-guide {
+  position: absolute;
+  bottom: 40px;
+  left: 70px;
+  background-color: var(--red);
+  opacity: 0.9;
+  color: var(--white);
+  border-radius: 0.5rem;
+  width: 70%;
+  height: 2.625rem;
+}
+
+.download-btn {
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 13.625rem;
+  height: 2.625rem;
+  margin-top: 1rem;
+}
+
+/* Responsivo property-guide */
+@media only screen and (max-width: 1470px) {
+  .property-guide-container img {
+    height: 20rem;
+  }
+
+  .property-guide {
+    bottom: 25px;
+    left: 45px;
+  }
+
+  .download-btn {
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    width: 8rem;
+    height: 1.8rem;
+  }
+}
+
+/*****************************************************/
+
+/* Zoom */
+.card-zoom {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+.image-zoom {
+  max-width: 100%;
+  height: 27rem;
+  transform: scale(2);
+  transition: transform 8s ease; /* Adicionando transição na propriedade transform */
+}
+
+/* Zoom responsivo */
+@media only screen and (max-width: 1470px) {
+  .image-zoom {
+    height: 20rem;
+  }
+}
+
+/*****************************************************/
+
+/* Footer */
+.footer-container {
+  background-color: var(--blue);
+  height: 4.375rem;
+  padding: 0 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-container p {
+  color: var(--white);
+  margin-right: 5rem;
+}
+
+.nav-list-footer {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-list-footer a {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* Footer responsivo */
+@media only screen and (max-width: 980px) {
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-logo-container p {
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+
+  .nav-list-footer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .footer-container {
+    padding: 0 0.5rem;
+  }
+
+  .footer-logo-container p {
+    margin-right: 0.8rem;
+    font-size: 0.8rem;
+  }
+}
